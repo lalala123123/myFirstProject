@@ -1,0 +1,5 @@
+package Prediction
+
+object PredectModel {
+
+}

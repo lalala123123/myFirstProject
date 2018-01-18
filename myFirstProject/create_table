@@ -1,0 +1,31 @@
+create table `user`( `user_id` INT UNSIGNED AUTO_INCREMENT,
+ 	`IMSI` VARCHAR(100) NOT NULL, 
+	`net` VARCHAR(10) , 
+	`sex` INT , 
+	`brand` VARCHAR(100), 
+	`model` VARCHAR(100), 
+	PRIMARY KEY (`user_id`), 
+	UNIQUE KEY (`IMSI`)
+);
+
+create table user_month (`id` INT UNSIGNED AUTO_INCREMENT,
+    	`IMSI` VARCHAR(100),
+    	`month` VARCHAR(100),
+    	`brand` VARCHAR(100),
+    	`model` VARCHAR(100),
+    	`date` INT,
+    	`call_duration` INT,
+    	`msg_num` INT,
+	'is_change' INT,
+    	PRIMARY KEY (`id`)
+);
+
+
+create table `cell_phone`( `phone_id` INT UNSIGNED AUTO_INCREMENT,
+	`brand` VARCHAR(100),
+	`model` VARCHAR(100), 
+	`create_time` VARCHAR(100), 
+	PRIMARY KEY (`phone_id`), 
+	UNIQUE KEY (`brand`,`model`)
+);
+
