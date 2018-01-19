@@ -6,16 +6,18 @@ import org.apache.log4j.{Level, Logger}
 import Prediction.{CreateModel, Pre_Date}
 import org.apache.spark.sql.types.{StructField, _}
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.{DataFrame, Row, SQLContext, SaveMode}
+import org.apache.spark.sql._
 import org.apache.zookeeper.CreateMode
 object Read_CSV {
   def main(args: Array[String]): Unit = {
-    Logger.getLogger("org.apache.spark").setLevel(Level.ERROR)
+    //Logger.getLogger("org.apache.spark").setLevel(Level.ERROR)
 
-    val conf = new SparkConf().setAppName("FirstSpark").setMaster("local")
+    val sparkSession = SparkSession.builder().master("local").appName("FirstSpark").getOrCreate()
+    //val conf = new SparkConf().setAppName("FirstSpark").setMaster("local")
     //.setMaster("spark://hadoop:7077")//
-    val sc = new SparkContext(conf)
-    var sqlContext: SQLContext = new SQLContext(sc)
+
+    //val sc = new SparkContext(conf)
+    var sqlContext: SQLContext = sparkSession.sqlContext//new SQLContext(sc)
 
     //手机数据存入mysql
 /**
@@ -28,7 +30,7 @@ object Read_CSV {
       Cellphone_Data.insert_cellphone(sqlContext, prop, f.getAbsolutePath)
     }
 **/
-    CreateModel.createModel(Pre_Date.get_date(sqlContext,List("201503")),Pre_Date.get_date(sqlContext,List("201504")))
+    CreateModel.createModel(sparkSession,Pre_Date.get_date(sqlContext,List("201503")),Pre_Date.get_date(sqlContext,List("201504")))
     //用于读取csv
 
 /**

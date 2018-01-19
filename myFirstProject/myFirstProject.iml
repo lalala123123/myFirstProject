@@ -192,7 +192,8 @@
     <orderEntry type="library" name="Maven: org.jpmml:pmml-model:1.2.15" level="project" />
     <orderEntry type="library" name="Maven: org.jpmml:pmml-schema:1.2.15" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
-    <orderEntry type="library" name="xgboost4j-spark-0.7" level="project" />
-    <orderEntry type="library" name="xgboost4j-0.7" level="project" />
+    <orderEntry type="library" name="Maven: ml.dmlc:xgboost4j-spark:0.8" level="project" />
+    <orderEntry type="library" name="xgboost4j-0.8" level="project" />
+    <orderEntry type="library" name="xgboost4j-spark-0.8" level="project" />
   </component>
 </module>

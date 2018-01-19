@@ -88,7 +88,7 @@ object Pre_Date {
   }
 
   def create_Train_data(row:Row,month:String): Row ={
-    print(row.get(0))
+    //print(row.get(0))
     var result = List[Any](month)
 
     var brand:Array[Int] = new Array[Int](18)
@@ -173,13 +173,13 @@ object Pre_Date {
 
   def cal_month(product_month:String,now_month:String): String ={
     if(product_month.length < now_month.length){
-      return ""
+      return "-1"
     }
     val sdf = new SimpleDateFormat("yyyyMM")
-    print(sdf.parse(now_month).getTime,sdf.parse(product_month).getTime)
+    //print(sdf.parse(now_month).getTime,sdf.parse(product_month).getTime)
     val result = (sdf.parse(now_month).getTime/1000-sdf.parse(product_month).getTime/1000)/(3600*24*30)
     if(result < 0){
-      return "";
+      return "-1";
     }
     return result.toString;
   }
